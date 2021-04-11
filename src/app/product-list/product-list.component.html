@@ -1,0 +1,21 @@
+<h2>Products</h2>
+<div *ngIf="products">
+  <div class="row" *ngFor="let product of products">
+    <div class="col s12 item">
+      <h3 class="item-header">
+        <a href="#" [title]="product.description" [routerLink]="['products/', product.id]">{{product.name}}</a>
+      </h3>
+      <p *ngIf="product.description">
+        {{product.description}}
+      </p>
+      <button (click)="addToCart(product)">Add to Cart</button>
+      <app-product-alert [product]="product" (notify)="onNotify()"></app-product-alert>
+    </div>
+  </div>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
